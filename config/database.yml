@@ -1,0 +1,22 @@
+
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: root
+  host: localhost
+
+development:
+  <<: *default
+  database: devis_9troisquart_development
+
+test:
+  <<: *default
+  database: devis_9troisquart_test
+
+production:
+  <<: *default
+  database: devis_9troisquart_production
+  username: devis_9troisquart
+  password: <%= ENV['DEVIS_9TROISQUART_DATABASE_PASSWORD'] %>
